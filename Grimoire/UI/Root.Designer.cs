@@ -315,7 +315,7 @@
 			base.Icon = (global::System.Drawing.Icon)componentResourceManager.GetObject("$this.Icon");
 			base.Name = "Root";
 			base.StartPosition = global::System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "Grimoire 3.8+ PRO v1.7.8 (EoL patched) t!rep @satan";
+			this.Text = "GrimLite 1";
 			base.FormClosing += new global::System.Windows.Forms.FormClosingEventHandler(this.Root_FormClosing);
 			base.Load += new global::System.EventHandler(this.Root_Load);
 			this.MenuMain.ResumeLayout(false);

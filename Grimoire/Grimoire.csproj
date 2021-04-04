@@ -1,0 +1,417 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE428B4D-E9ED-47FB-A86B-81885C64C1E4}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Grimoire</RootNamespace>
+    <AssemblyName>Grimoire</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60DC8134-EBA5-43B8-BCC9-BB4BC16C2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>Grimoire.ico</ApplicationIcon>
+    <StartupObject>Grimoire.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxInterop.ShockwaveFlashObjects">
+      <HintPath>..\..\..\gLibrary\Grimoire\AxInterop.ShockwaveFlashObjects.dll</HintPath>
+    </Reference>
+    <Reference Include="EasyHook">
+      <HintPath>..\..\..\gLibrary\Grimoire\EasyHook.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\..\..\gLibrary\Grimoire\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\gLibrary\Grimoire\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Unity3.Eyedropper">
+      <HintPath>..\..\..\gLibrary\Grimoire\Unity3.Eyedropper.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Botting\Bot.cs" />
+    <Compile Include="Botting\BotUtilities.cs" />
+    <Compile Include="Botting\Commands\Combat\CmdAttack.cs" />
+    <Compile Include="Botting\Commands\Combat\CmdKill.cs" />
+    <Compile Include="Botting\Commands\Combat\CmdKillFor.cs" />
+    <Compile Include="Botting\Commands\Combat\CmdRest.cs" />
+    <Compile Include="Botting\Commands\Combat\CmdSkillSet.cs" />
+    <Compile Include="Botting\Commands\Combat\CmdUseSkill.cs" />
+    <Compile Include="Botting\Commands\ItemType.cs" />
+    <Compile Include="Botting\Commands\Item\CmdBankSwap.cs" />
+    <Compile Include="Botting\Commands\Item\CmdBankTransfer.cs" />
+    <Compile Include="Botting\Commands\Item\CmdBuy.cs" />
+    <Compile Include="Botting\Commands\Item\CmdBuyBack.cs" />
+    <Compile Include="Botting\Commands\Item\CmdBuyFast.cs" />
+    <Compile Include="Botting\Commands\Item\CmdEquip.cs" />
+    <Compile Include="Botting\Commands\Item\CmdEquipSet.cs" />
+    <Compile Include="Botting\Commands\Item\CmdGetDrop.cs" />
+    <Compile Include="Botting\Commands\Item\CmdLoad.cs" />
+    <Compile Include="Botting\Commands\Item\CmdMapItem.cs" />
+    <Compile Include="Botting\Commands\Item\CmdSell.cs" />
+    <Compile Include="Botting\Commands\Map\CmdJoin.cs" />
+    <Compile Include="Botting\Commands\Map\CmdMoveToCell.cs" />
+    <Compile Include="Botting\Commands\Map\CmdSetSpawn.cs" />
+    <Compile Include="Botting\Commands\Map\CmdTravel.cs" />
+    <Compile Include="Botting\Commands\Map\CmdWalk.cs" />
+    <Compile Include="Botting\Commands\Map\CmdYulgar.cs" />
+    <Compile Include="Botting\Commands\Misc\CmdBankList.cs" />
+    <Compile Include="Botting\Commands\Misc\CmdBeep.cs" />
+    <Compile Include="Botting\Commands\Misc\CmdBlank.cs" />
+    <Compile Include="Botting\Commands\Misc\CmdBlank2.cs" />
+    <Compile Include="Botting\Commands\Misc\CmdBotDelay.cs" />
+    <Compile Include="Botting\Commands\Misc\CmdChange.cs" />
+    <Compile Include="Botting\Commands\Misc\CmdDelay.cs" />
+    <Compile Include="Botting\Commands\Misc\CmdGotoLabel.cs" />
+    <Compile Include="Botting\Commands\Misc\CmdGotoPlayer.cs" />
+    <Compile Include="Botting\Commands\Misc\CmdIndex.cs" />
+    <Compile Include="Botting\Commands\Misc\CmdInt.cs" />
+    <Compile Include="Botting\Commands\Misc\CmdLabel.cs" />
+    <Compile Include="Botting\Commands\Misc\CmdLoadBot.cs" />
+    <Compile Include="Botting\Commands\Misc\CmdLog.cs" />
+    <Compile Include="Botting\Commands\Misc\CmdLogout.cs" />
+    <Compile Include="Botting\Commands\Misc\CmdPacket.cs" />
+    <Compile Include="Botting\Commands\Misc\CmdRestart.cs" />
+    <Compile Include="Botting\Commands\Misc\CmdStop.cs" />
+    <Compile Include="Botting\Commands\Misc\CmdToggleProvoke.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdCellIs.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdCellIsNot.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdEquipped.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdFactionRankGreaterThan.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdFactionRankLessThan.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdGoldGreaterThan.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdGoldLessThan.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdHealthGreaterThan.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdHealthLessThan.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdInBank.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdInCombat.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdInHouse.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdInInventory.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdInTemp.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdIntGreaterThan.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdIntIs.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdIntIsNot.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdIntLessThan.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdIsMember.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdIsNotMember.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdItemNotPickupable.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdItemPickupable.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdLevelGreaterThan.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdLevelIs.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdLevelLessThan.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdListInInv.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdManaGreaterThan.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdManaLessThan.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdMapIs.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdMapIsNot.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdMonsterInRoom.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdMonsterNotInRoom.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdMonstersGreaterThan.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdMonstersLessThan.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdNotEquipped.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdNotInBank.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdNotInCombat.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdNotInHouse.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdNotInInventory.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdNotInTemp.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdPlayerInCell.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdPlayerInRoom.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdPlayerNotInCell.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdPlayerNotInMyCell.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdPlayerNotInRoom.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdPlayersGreaterThan.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdPlayersLessThan.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdQuestAvailable.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdQuestCompleted.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdQuestInProgress.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdQuestNotAvailable.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdQuestNotCompleted.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\CmdQuestNotInProgress.cs" />
+    <Compile Include="Botting\Commands\Misc\Statements\StatementCommand.cs" />
+    <Compile Include="Botting\Commands\Quest\CmdAcceptQuest.cs" />
+    <Compile Include="Botting\Commands\Quest\CmdCompleteQuest.cs" />
+    <Compile Include="Botting\Config.cs" />
+    <Compile Include="Botting\Configuration.cs" />
+    <Compile Include="Botting\CosmeticEquipment.cs" />
+    <Compile Include="Botting\EquipType.cs" />
+    <Compile Include="Botting\Extensions.cs" />
+    <Compile Include="Botting\FontInfo.cs" />
+    <Compile Include="Botting\IBotCommand.cs" />
+    <Compile Include="Botting\IBotEngine.cs" />
+    <Compile Include="Botting\OptionsManager.cs" />
+    <Compile Include="Game\BotData.cs" />
+    <Compile Include="Game\Data\Bank.cs" />
+    <Compile Include="Game\Data\CompletedQuest.cs" />
+    <Compile Include="Game\Data\Faction.cs" />
+    <Compile Include="Game\Data\House.cs" />
+    <Compile Include="Game\Data\Inventory.cs" />
+    <Compile Include="Game\Data\InventoryItem.cs" />
+    <Compile Include="Game\Data\InventoryItemCombined.cs" />
+    <Compile Include="Game\Data\ItemBase.cs" />
+    <Compile Include="Game\Data\itemsR.cs" />
+    <Compile Include="Game\Data\itemsS.cs" />
+    <Compile Include="Game\Data\Monster.cs" />
+    <Compile Include="Game\Data\Quest.cs" />
+    <Compile Include="Game\Data\QuestInfo.cs" />
+    <Compile Include="Game\Data\QuestReward.cs" />
+    <Compile Include="Game\Data\Quests.cs" />
+    <Compile Include="Game\Data\Server.cs" />
+    <Compile Include="Game\Data\Shop.cs" />
+    <Compile Include="Game\Data\ShopInfo.cs" />
+    <Compile Include="Game\Data\Skill.cs" />
+    <Compile Include="Game\Data\TempInventory.cs" />
+    <Compile Include="Game\Data\TempItem.cs" />
+    <Compile Include="Game\DropStack.cs" />
+    <Compile Include="Game\LockActions.cs" />
+    <Compile Include="Game\Player.cs" />
+    <Compile Include="Game\PlayerInfo.cs" />
+    <Compile Include="Game\World.cs" />
+    <Compile Include="GrimEoLHook\EoLHook.cs" />
+    <Compile Include="Networking\Handlers\HandlerAFK.cs" />
+    <Compile Include="Networking\Handlers\HandlerAFK2.cs" />
+    <Compile Include="Networking\Handlers\HandlerAnimations.cs" />
+    <Compile Include="Networking\Handlers\HandlerChat.cs" />
+    <Compile Include="Networking\Handlers\HandlerDropItem.cs" />
+    <Compile Include="Networking\Handlers\HandlerGetQuests.cs" />
+    <Compile Include="Networking\Handlers\HandlerLoadBank.cs" />
+    <Compile Include="Networking\Handlers\HandlerLoadShop.cs" />
+    <Compile Include="Networking\Handlers\HandlerLogin.cs" />
+    <Compile Include="Networking\Handlers\HandlerMapJoin.cs" />
+    <Compile Include="Networking\Handlers\HandlerPlayers.cs" />
+    <Compile Include="Networking\Handlers\HandlerPolicy.cs" />
+    <Compile Include="Networking\Handlers\HandlerQuestComplete.cs" />
+    <Compile Include="Networking\Handlers\HandlerSkills.cs" />
+    <Compile Include="Networking\Handlers\HandlerWarningsXml.cs" />
+    <Compile Include="Networking\Handlers\HandlerWarningsXt.cs" />
+    <Compile Include="Networking\Handlers\HandlerXtCellJoin.cs" />
+    <Compile Include="Networking\Handlers\HandlerXtJoin.cs" />
+    <Compile Include="Networking\IJsonMessageHandler.cs" />
+    <Compile Include="Networking\IXmlMessageHandler.cs" />
+    <Compile Include="Networking\IXtMessageHandler.cs" />
+    <Compile Include="Networking\JsonMessage.cs" />
+    <Compile Include="Networking\Message.cs" />
+    <Compile Include="Networking\Proxy.cs" />
+    <Compile Include="Networking\XmlMessage.cs" />
+    <Compile Include="Networking\XtMessage.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.2.cs" />
+    <Compile Include="Properties\Resources.cs" />
+    <Compile Include="Properties\Settings.2.cs" />
+    <Compile Include="Properties\Settings.2.Designer.cs">
+      <DependentUpon>Settings.2.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <DependentUpon>Settings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Tools\AutoRelogin.cs" />
+    <Compile Include="Tools\BoolConverter.cs" />
+    <Compile Include="Tools\Buyback\AutoBuyBack.cs" />
+    <Compile Include="Tools\Buyback\BuyBackPage.cs" />
+    <Compile Include="Tools\Flash.cs" />
+    <Compile Include="Tools\FlashCallHandler.cs" />
+    <Compile Include="Tools\FlashErrorHandler.cs" />
+    <Compile Include="Tools\Grabber.cs" />
+    <Compile Include="Tools\Hotkey.cs" />
+    <Compile Include="Tools\KeyboardHook.cs" />
+    <Compile Include="Tools\Plugins\GrimoirePlugin.cs" />
+    <Compile Include="Tools\Plugins\GrimoirePluginEntry.cs" />
+    <Compile Include="Tools\Plugins\IGrimoirePlugin.cs" />
+    <Compile Include="Tools\QuestReqConverter.cs" />
+    <Compile Include="Tools\QuestRewardConverter.cs" />
+    <Compile Include="Tools\Spammer.cs" />
+    <Compile Include="Tools\StringBoolConverter.cs" />
+    <Compile Include="Tools\TrimConverter.cs" />
+    <Compile Include="UI\BankForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BankForm.Designer.cs">
+      <DependentUpon>BankForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BotManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\BotManager.Designer.cs">
+      <DependentUpon>BotManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CommandColorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CommandColorForm.Designer.cs">
+      <DependentUpon>CommandColorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CosmeticForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\CosmeticForm.Designer.cs">
+      <DependentUpon>CosmeticForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\EyeDropper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\EyeDropper.Designer.cs">
+      <DependentUpon>EyeDropper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Hotkeys.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Hotkeys.Designer.cs">
+      <DependentUpon>Hotkeys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ISetInterface.cs" />
+    <Compile Include="UI\Item.cs" />
+    <Compile Include="UI\Loaders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Loaders.Designer.cs">
+      <DependentUpon>Loaders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\LogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\LogForm.Designer.cs">
+      <DependentUpon>LogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Notepad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Notepad.Designer.cs">
+      <DependentUpon>Notepad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PacketLogger.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PacketLogger.Designer.cs">
+      <DependentUpon>PacketLogger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PacketSpammer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PacketSpammer.Designer.cs">
+      <DependentUpon>PacketSpammer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PacketTamperer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PacketTamperer.Designer.cs">
+      <DependentUpon>PacketTamperer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PlayerCellObj.cs" />
+    <Compile Include="UI\PluginManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\PluginManager.Designer.cs">
+      <DependentUpon>PluginManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RawCommandEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\RawCommandEditor.Designer.cs">
+      <DependentUpon>RawCommandEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Root.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Root.Designer.cs">
+      <DependentUpon>Root.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Set.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Set.Designer.cs">
+      <DependentUpon>Set.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SetItem.cs" />
+    <Compile Include="UI\Travel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Travel.Designer.cs">
+      <DependentUpon>Travel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Consumer.cs" />
+    <Compile Include="Utils\ControlUtils.cs" />
+    <Compile Include="Utils\DefaultTypedValueProvider.cs" />
+    <Compile Include="Utils\EmptyListProvider.cs" />
+    <Compile Include="Utils\EnumerableUtils.cs" />
+    <Compile Include="Utils\NetworkUtils.cs" />
+    <Compile Include="Utils\ReflectUtils.cs" />
+    <Compile Include="Utils\TimeLimiter.cs" />
+    <Compile Include="Utils\TypedValueProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.2.resources" />
+    <EmbeddedResource Include="Properties\Resources.resources" />
+    <EmbeddedResource Include="UI\BankForm.resources" />
+    <EmbeddedResource Include="UI\BotManager.resources" />
+    <EmbeddedResource Include="UI\CommandColorForm.resources" />
+    <EmbeddedResource Include="UI\CosmeticForm.resources" />
+    <EmbeddedResource Include="UI\EyeDropper.resources" />
+    <EmbeddedResource Include="UI\Hotkeys.resources" />
+    <EmbeddedResource Include="UI\Loaders.resources" />
+    <EmbeddedResource Include="UI\LogForm.resources" />
+    <EmbeddedResource Include="UI\Notepad.resources" />
+    <EmbeddedResource Include="UI\PacketLogger.resources" />
+    <EmbeddedResource Include="UI\PacketSpammer.resources" />
+    <EmbeddedResource Include="UI\PacketTamperer.resources" />
+    <EmbeddedResource Include="UI\PluginManager.resources" />
+    <EmbeddedResource Include="UI\RawCommandEditor.resources" />
+    <EmbeddedResource Include="UI\Root.resources" />
+    <EmbeddedResource Include="UI\Set.resources" />
+    <EmbeddedResource Include="UI\Travel.resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.manifest" />
+    <None Include="Properties\Settings.2.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.2.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
